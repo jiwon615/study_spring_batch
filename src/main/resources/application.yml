@@ -7,4 +7,5 @@ spring:
   batch:
     jdbc:
       initialize-schema: embedded
-
+    job:
+      enabled: false   # ?? ? ???? ??
