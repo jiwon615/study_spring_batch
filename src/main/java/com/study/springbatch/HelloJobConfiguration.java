@@ -15,12 +15,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HelloJobConfiguration {
 
-    private final JobBuilderFactory jobBuilderFactory;
-    private final StepBuilderFactory stepBuilderFactory;
+    private final JobBuilderFactory jobBuilderFactory;  // Job을 생성하는 빌더 팩토리
+    private final StepBuilderFactory stepBuilderFactory;     // Step을 생성하는 빌더 팩토리
 
     @Bean
     public Job helloJob() {
-        return jobBuilderFactory.get("helloJob")
+        return jobBuilderFactory.get("helloJob") // helloJob 이름으로 Job 생성
                 .start(helloStep1())
                 .next(helloStep2())
                 .build();
@@ -29,8 +29,8 @@ public class HelloJobConfiguration {
     @Bean
     public Step helloStep1() {
         log.info("==step1==");
-        return stepBuilderFactory.get("helloStep1")
-                .tasklet((contribution, chunkContext) -> {
+        return stepBuilderFactory.get("helloStep1") // heooStep1 이름으로 Step 생성
+                .tasklet((contribution, chunkContext) -> { // tasklet: Step안에서 단일 테스크로 수행되는 로직 구현
                     log.info("=================");
                     log.info(">>> Hello Spring Batch");
                     log.info("=================");
@@ -51,5 +51,4 @@ public class HelloJobConfiguration {
                 })
                 .build();
     }
-
 }
