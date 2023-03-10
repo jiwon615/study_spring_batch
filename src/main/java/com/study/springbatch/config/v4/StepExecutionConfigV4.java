@@ -14,7 +14,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Step
+ * Step 여러개 실행하여 성공했을 때의 케이스, Step2 실패했을 때의 케이스
+ * - db 어떻게 데이터 row 생기는지 확인하는 예제 (JobInstance, JobExecution, StepExecution)
  */
 @Configuration
 @Slf4j
