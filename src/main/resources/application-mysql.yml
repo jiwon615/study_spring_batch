@@ -6,4 +6,4 @@ spring:
     password: Wldnjs1!@
   batch:
     jdbc:
-      initialize-schema: never
+      initialize-schema: always

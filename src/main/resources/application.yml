@@ -8,4 +8,4 @@ spring:
     jdbc:
       initialize-schema: embedded
     job:
-      enabled: false   # ?? ? ???? ??
+      enabled: false
