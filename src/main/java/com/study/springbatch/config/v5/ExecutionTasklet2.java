@@ -20,8 +20,8 @@ public class ExecutionTasklet2 implements Tasklet {
         ExecutionContext stepExecutionContext = contribution.getStepExecution().getExecutionContext();
 
         // tasklet1에서부터 set 해줬기 때문에 job간에, 그리고 step 간에 공유 되는지 확인
-        log.info("jobName : ", jobExecutionContext.get("jobName")); // 공유 받음
-        log.info("stepName : ", stepExecutionContext.get("stepName")); // 공유 안받음
+        log.info("jobName : ", jobExecutionContext.get("jobName")); // job_V5 (공유 받음)
+        log.info("stepName : ", stepExecutionContext.get("stepName")); // null (공유 안받음)
 
         String stepName = chunkContext.getStepContext().getStepExecution().getStepName();
 

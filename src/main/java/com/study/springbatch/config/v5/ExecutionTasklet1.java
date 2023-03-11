@@ -22,6 +22,7 @@ public class ExecutionTasklet1 implements Tasklet {
         String jobName = chunkContext.getStepContext().getStepExecution().getJobExecution().getJobInstance().getJobName();
         String stepName = chunkContext.getStepContext().getStepExecution().getStepName();
 
+        // 최초 실행시 jobNamer과 stepName 모두 null
         if (jobExecutionContext.get("jobName") == null) {
             jobExecutionContext.put("jobName", jobName); // 값을 넣으면, Job의 Step간 서로 공유됨
         }
@@ -30,8 +31,8 @@ public class ExecutionTasklet1 implements Tasklet {
             stepExecutionContext.put("stepName", stepName); // 값을 넣어도, Step 간 서로 공유 안됨
         }
 
-        log.info("jobName : ", jobName);
-        log.info("stepName : ", stepName);
+        log.info("jobName : ", jobName);  // job_V5
+        log.info("stepName : ", stepName); // step1_V5
         return RepeatStatus.FINISHED;
     }
 }
