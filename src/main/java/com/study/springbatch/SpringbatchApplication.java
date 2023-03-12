@@ -2,6 +2,9 @@ package com.study.springbatch;
 
 import com.study.springbatch.config.part3_step.v2.JobRunnerV2;
 import com.study.springbatch.config.part3_step.v2.TaskBasedAndChunkBasedConfigV2;
+import com.study.springbatch.config.part3_step.v3.CustomTasklet;
+import com.study.springbatch.config.part3_step.v3.JobRunnerV3;
+import com.study.springbatch.config.part3_step.v3.TaskletStepConfigV3;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,7 +22,8 @@ import org.springframework.context.annotation.Import;
 //@Import({JobBuilderFactoryConfigV2.class, JobRunnerV2.class})
 //@Import({SimpleJobConfigV3.class, JobRunnerV3.class, CustomJobParametersIncrementer.class})
 //@Import({StepBuilderConfigV1.class, JobRunnerV1.class}) // 여기부터 part3
-@Import({TaskBasedAndChunkBasedConfigV2.class, JobRunnerV2.class})
+//@Import({TaskBasedAndChunkBasedConfigV2.class, JobRunnerV2.class})
+@Import({TaskletStepConfigV3.class, JobRunnerV3.class, CustomTasklet.class})
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
