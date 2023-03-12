@@ -1,9 +1,11 @@
 package com.study.springbatch;
 
+import com.study.springbatch.config.part2.v1.FirstJobConfigV1;
+import com.study.springbatch.config.part2.v1.SecondJobConfigV1;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 
 //@Import(HelloJobConfiguration.class)
 //@Import({JobInstanceConfigV1.class, JobRunnerV1.class})
@@ -12,7 +14,8 @@ import org.springframework.context.annotation.ComponentScan;
 //@Import({StepExecutionConfigV4.class, JobRunnerV4.class})
 //@Import({ExecutionContextConfigV5.class, JobRunnerV5.class, ExecutionTasklet1.class, ExecutionTasklet2.class, ExecutionTasklet3.class, ExecutionTasklet4.class})
 //@Import({JobRepositoryConfigV6.class, JobRunnerV6.class, JobRepositoryListener.class, CustomBatchConfigurer.class})
-@ComponentScan("com.study.springbatch.config.part1.v7")
+//@ComponentScan("com.study.springbatch.config.part1.v7")
+@Import({FirstJobConfigV1.class, SecondJobConfigV1.class})
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
