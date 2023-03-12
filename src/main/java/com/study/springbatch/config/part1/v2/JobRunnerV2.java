@@ -1,4 +1,4 @@
-package com.study.springbatch.config.v5;
+package com.study.springbatch.config.part1.v2;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -10,13 +10,15 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 /**
- * 성공시 -> 1 JobInstance, 1 JobExecution, 3 StepExecution (총 3개의 steps 등록했으므로)
- * 실패시(step2에서 실패) ->
+ * JobParameter의 ParameteType 구분 사용
+ * - String, date, long, double
  */
 @Component
 @Slf4j
-public class JobRunnerV5 implements ApplicationRunner { // ApplicationRunner는 스프링 부트 초기화 및 완료 된 직후 실행
+public class JobRunnerV2 implements ApplicationRunner { // ApplicationRunner는 스프링 부트 초기화 및 완료 된 직후 실행
 
     @Autowired
     private JobLauncher jobLauncher;
@@ -29,8 +31,11 @@ public class JobRunnerV5 implements ApplicationRunner { // ApplicationRunner는 
         log.info("===JobRunner의 run()===");
         JobParameters jobParameters = new JobParametersBuilder()
                 .addString("name", "user1")
+                .addLong("seq", 2L)
+                .addDate("date", new Date())
+                .addDouble("age", 16.5)
                 .toJobParameters();
 
-        jobLauncher.run(job, jobParameters);
+        jobLauncher.run(job, jobParameters); // jobLauncher를 통해 job을 수행
     }
 }

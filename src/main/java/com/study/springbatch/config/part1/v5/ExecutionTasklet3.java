@@ -1,4 +1,4 @@
-package com.study.springbatch.config.v5;
+package com.study.springbatch.config.part1.v5;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.StepContribution;

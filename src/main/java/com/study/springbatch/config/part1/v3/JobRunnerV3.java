@@ -1,4 +1,4 @@
-package com.study.springbatch.config.v4;
+package com.study.springbatch.config.part1.v3;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -10,13 +10,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 /**
- * 성공시 -> 1 JobInstance, 1 JobExecution, 3 StepExecution (총 3개의 steps 등록했으므로)
- * 실패시(step2에서 실패) ->
  */
 @Component
 @Slf4j
-public class JobRunnerV4 implements ApplicationRunner { // ApplicationRunner는 스프링 부트 초기화 및 완료 된 직후 실행
+public class JobRunnerV3 implements ApplicationRunner { // ApplicationRunner는 스프링 부트 초기화 및 완료 된 직후 실행
 
     @Autowired
     private JobLauncher jobLauncher;

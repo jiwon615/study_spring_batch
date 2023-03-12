@@ -1,4 +1,4 @@
-package com.study.springbatch.config.v1;
+package com.study.springbatch.config.part1.v1;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

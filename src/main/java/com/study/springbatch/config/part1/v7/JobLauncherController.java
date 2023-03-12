@@ -1,4 +1,4 @@
-package com.study.springbatch.config.v7;
+package com.study.springbatch.config.part1.v7;
 
 import lombok.Getter;
 import lombok.Setter;

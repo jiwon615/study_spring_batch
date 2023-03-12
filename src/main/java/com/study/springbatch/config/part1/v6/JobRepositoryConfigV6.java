@@ -1,4 +1,4 @@
-package com.study.springbatch.config.v7;
+package com.study.springbatch.config.part1.v6;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,30 +17,29 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 @RequiredArgsConstructor
-public class JobLauncherConfigV7 {
+public class JobRepositoryConfigV6 {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+    private final JobRepositoryListener jobRepositoryListener;
 
     @Bean
     public Job job() {
-        log.info(">> job_v7");
-        return jobBuilderFactory.get("job_v7")
+        log.info(">> job_v6");
+        return jobBuilderFactory.get("job_v6")
                 .start(step1())
                 .next(step2())
+                .listener(jobRepositoryListener) // 빈으로 만들어준 리스너 등록!
                 .build();
     }
 
     @Bean
     public Step step1() {
-        return stepBuilderFactory.get("step1_v7")
+        return stepBuilderFactory.get("step1_v6")
                 .tasklet(new Tasklet() {
                     @Override
                     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-                        log.info(">> step1_v7");
-                        // 동기적 방식은 3초 딜레이 포함 모든 작업 완료된 후에 반환
-                        // 비동기적 방식은 일단 먼저 JobExecution 반환 하고, 3초까지 클라이언트 입장에서는 안걸림
-                        Thread.sleep(3000);
+                        log.info(">> step1_v6");
                         return RepeatStatus.FINISHED;
                     }
                 })
@@ -49,9 +48,9 @@ public class JobLauncherConfigV7 {
 
     @Bean
     public Step step2() {
-        return stepBuilderFactory.get("step2_v7")
+        return stepBuilderFactory.get("step2_v6")
                 .tasklet((contribution, chunkContext) -> {
-                    log.info(">> step2_v7");
+                    log.info(">> step2_v6");
                     return RepeatStatus.FINISHED;
                 })
                 .build();

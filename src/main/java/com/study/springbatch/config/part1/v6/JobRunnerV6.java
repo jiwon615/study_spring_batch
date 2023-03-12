@@ -1,4 +1,4 @@
-package com.study.springbatch.config.v3;
+package com.study.springbatch.config.part1.v6;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -10,13 +10,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
-/**
- */
 @Component
 @Slf4j
-public class JobRunnerV3 implements ApplicationRunner { // ApplicationRunner는 스프링 부트 초기화 및 완료 된 직후 실행
+public class JobRunnerV6 implements ApplicationRunner { // ApplicationRunner는 스프링 부트 초기화 및 완료 된 직후 실행
 
     @Autowired
     private JobLauncher jobLauncher;
@@ -28,7 +24,7 @@ public class JobRunnerV3 implements ApplicationRunner { // ApplicationRunner는 
     public void run(ApplicationArguments args) throws Exception {
         log.info("===JobRunner의 run()===");
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("name", "user1")
+                .addString("requestDate", "20230310")
                 .toJobParameters();
 
         jobLauncher.run(job, jobParameters);
