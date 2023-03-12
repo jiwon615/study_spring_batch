@@ -4,6 +4,9 @@ import com.study.springbatch.config.part2.v1.FirstJobConfigV1;
 import com.study.springbatch.config.part2.v1.SecondJobConfigV1;
 import com.study.springbatch.config.part2.v2.JobBuilderFactoryConfigV2;
 import com.study.springbatch.config.part2.v2.JobRunnerV2;
+import com.study.springbatch.config.part2.v3.CustomJobParametersIncrementer;
+import com.study.springbatch.config.part2.v3.JobRunnerV3;
+import com.study.springbatch.config.part2.v3.SimpleJobConfigV3;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +21,8 @@ import org.springframework.context.annotation.Import;
 //@Import({JobRepositoryConfigV6.class, JobRunnerV6.class, JobRepositoryListener.class, CustomBatchConfigurer.class})
 //@ComponentScan("com.study.springbatch.config.part1.v7")
 //@Import({FirstJobConfigV1.class, SecondJobConfigV1.class}) // 여기서부터 part2
-@Import({JobBuilderFactoryConfigV2.class, JobRunnerV2.class})
+//@Import({JobBuilderFactoryConfigV2.class, JobRunnerV2.class})
+@Import({SimpleJobConfigV3.class, JobRunnerV3.class, CustomJobParametersIncrementer.class})
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
