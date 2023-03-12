@@ -1,4 +1,4 @@
-package com.study.springbatch.config.part3_step;
+package com.study.springbatch.config.part3_step.v1;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;

@@ -1,10 +1,7 @@
 package com.study.springbatch;
 
-import com.study.springbatch.config.part2_job.v3.CustomJobParametersIncrementer;
-import com.study.springbatch.config.part2_job.v3.JobRunnerV3;
-import com.study.springbatch.config.part2_job.v3.SimpleJobConfigV3;
-import com.study.springbatch.config.part3_step.JobRunnerV1;
-import com.study.springbatch.config.part3_step.StepBuilderConfigV1;
+import com.study.springbatch.config.part3_step.v1.JobRunnerV1;
+import com.study.springbatch.config.part3_step.v1.StepBuilderConfigV1;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
