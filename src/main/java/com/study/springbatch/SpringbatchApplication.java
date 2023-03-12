@@ -3,6 +3,8 @@ package com.study.springbatch;
 import com.study.springbatch.config.part2_job.v3.CustomJobParametersIncrementer;
 import com.study.springbatch.config.part2_job.v3.JobRunnerV3;
 import com.study.springbatch.config.part2_job.v3.SimpleJobConfigV3;
+import com.study.springbatch.config.part3_step.JobRunnerV1;
+import com.study.springbatch.config.part3_step.StepBuilderConfigV1;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +20,8 @@ import org.springframework.context.annotation.Import;
 //@ComponentScan("com.study.springbatch.config.part1_domain.v7")
 //@Import({FirstJobConfigV1.class, SecondJobConfigV1.class}) // 여기서부터 part2
 //@Import({JobBuilderFactoryConfigV2.class, JobRunnerV2.class})
-@Import({SimpleJobConfigV3.class, JobRunnerV3.class, CustomJobParametersIncrementer.class})
+//@Import({SimpleJobConfigV3.class, JobRunnerV3.class, CustomJobParametersIncrementer.class})
+@Import({StepBuilderConfigV1.class, JobRunnerV1.class}) // 여기부터 part3
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {

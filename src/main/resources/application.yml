@@ -9,5 +9,5 @@ spring:
       initialize-schema: embedded
     job:
       enabled: false
-#      names: ${job.name:NONE}
+      names: ${job.name:NONE}
 
