@@ -23,7 +23,7 @@ public class JobRepositoryListener implements JobExecutionListener {
         log.info("===JobRepositoryListener.afterJob()===");
         String jobName = jobExecution.getJobInstance().getJobName();
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("requestDate", "20230311").toJobParameters();
+                .addString("requestDate", "20230309").toJobParameters();
 
         // getLastJobExecution, getLastStepExecution, getStepExecutionCount 등 사용 가능
         // BATCH_JOB_EXECUTION_PARAMS 디비에 저장된 값을 가져와서 아래처럼 조회해볼 수 있음 (디비에 있는 값의 jobParameters를 넣어주면 됨)
@@ -33,9 +33,9 @@ public class JobRepositoryListener implements JobExecutionListener {
                 BatchStatus status = execution.getStatus();
                 ExitStatus exitStatus = execution.getExitStatus();
                 String stepName = execution.getStepName();
-                log.info("status: ", status.toString());
-                log.info("exitStatus: ", exitStatus.getExitCode());
-                log.info("stepName: ", stepName);
+                log.info("status: {}", status.toString());
+                log.info("exitStatus: {}", exitStatus.getExitCode());
+                log.info("stepName: {}", stepName);
             }
         }
     }

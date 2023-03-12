@@ -27,9 +27,9 @@ public class CustomBatchConfigurer extends BasicBatchConfigurer {
         JobRepositoryFactoryBean factory = new JobRepositoryFactoryBean();
         factory.setDataSource(dataSource);
         factory.setTransactionManager(getTransactionManager());
-        factory.setIsolationLevelForCreate("ISOLATION_READ_COMMITTED");
-        factory.setTablePrefix("SYSTEM_");
+        factory.setIsolationLevelForCreate("ISOLATION_READ_COMMITTED"); // isolation 수준 기본 값은 "ISOLATION_SERIALIZABLE"
+//        factory.setTablePrefix("SYSTEM_"); // 테이블 Prefix 기본 값은 "BATCH_"
 
-        return factory.getObject();
+        return factory.getObject(); // Proxy 객체 생성됨 (트랜잭션 Advice 적용 등을 위해 AOP 기술 적용)
     }
 }

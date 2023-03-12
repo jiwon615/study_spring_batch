@@ -24,7 +24,7 @@ public class JobRunnerV6 implements ApplicationRunner { // ApplicationRunner는 
     public void run(ApplicationArguments args) throws Exception {
         log.info("===JobRunner의 run()===");
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("requestDate", "20230309")
+                .addString("requestDate", "20230310")
                 .toJobParameters();
 
         jobLauncher.run(job, jobParameters);
