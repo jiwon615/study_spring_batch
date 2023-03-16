@@ -12,6 +12,8 @@ import com.study.springbatch.config.part4_flow.v3.JobRunnerV3;
 import com.study.springbatch.config.part4_flow.v4.CustomDecider;
 import com.study.springbatch.config.part4_flow.v4.JobExeuctionDeciderStatusConfigV4;
 import com.study.springbatch.config.part4_flow.v4.JobRunnerV4;
+import com.study.springbatch.config.part4_flow.v5.FlowStepConfigV5;
+import com.study.springbatch.config.part4_flow.v5.JobRunnerV5;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -35,7 +37,8 @@ import org.springframework.context.annotation.Import;
 //@Import(FlowJobConfigV1.class) // 여기부터 part4
 //@Import({FlowJobStartNextConfigV2.class, JobRunnerV2.class})
 //@Import({BatchStatusExitStatusConfigV3.class, JobRunnerV3.class})
-@Import({JobExeuctionDeciderStatusConfigV4.class, JobRunnerV4.class, CustomDecider.class})
+//@Import({JobExeuctionDeciderStatusConfigV4.class, JobRunnerV4.class, CustomDecider.class})
+@Import({FlowStepConfigV5.class, JobRunnerV5.class})
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
