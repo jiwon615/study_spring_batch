@@ -30,7 +30,7 @@ public class FlowStepConfigV5 {
         log.info(">> batchJob_v5");
         return jobBuilderFactory.get("batchJob_v5")
                 .start(flowStep())
-                .next(step2()) // step() 이 성공적으로 완료하면 decider() 를 실행하라
+                .next(step2())
 
                 .build();
     }
