@@ -18,6 +18,8 @@ import com.study.springbatch.config.part4_flow.v6.CustomJobListener;
 import com.study.springbatch.config.part4_flow.v6.CustomStepListener;
 import com.study.springbatch.config.part4_flow.v6.JobRunnerV6;
 import com.study.springbatch.config.part4_flow.v6.JobScopeConfigV6;
+import com.study.springbatch.config.part5_chunkBasic.v1.ChunkConfigV1;
+import com.study.springbatch.config.part5_chunkBasic.v1.JobRunnerV1;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -43,7 +45,8 @@ import org.springframework.context.annotation.Import;
 //@Import({BatchStatusExitStatusConfigV3.class, JobRunnerV3.class})
 //@Import({JobExeuctionDeciderStatusConfigV4.class, JobRunnerV4.class, CustomDecider.class})
 //@Import({FlowStepConfigV5.class, JobRunnerV5.class})
-@Import({JobScopeConfigV6.class, JobRunnerV6.class, CustomJobListener.class, CustomStepListener.class})
+//@Import({JobScopeConfigV6.class, JobRunnerV6.class, CustomJobListener.class, CustomStepListener.class})
+@Import({ChunkConfigV1.class, JobRunnerV1.class}) // 여기부터 part5
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
