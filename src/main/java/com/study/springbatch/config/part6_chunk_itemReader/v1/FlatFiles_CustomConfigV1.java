@@ -22,12 +22,14 @@ import java.util.List;
  * ItemReader 의 FlatFileItemReader 학습
  * - FlatFieldItemReader 는 파일을 읽는 두가지 방식 존재
  *  1. DelimitedLineTokenizer - 구분자방식
- *  2. FixedLengthTokenizer   -고정길기 방식
+ *  2. FixedLengthTokenizer   -고정길이 방식
+ *
+ *  - 여기서는 직접 구현체 만들어서 활용해보자
  */
 @RequiredArgsConstructor
 @Configuration
 @Slf4j
-public class FlatFilesConfigV1 {
+public class FlatFiles_CustomConfigV1 {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
@@ -43,7 +45,6 @@ public class FlatFilesConfigV1 {
     }
 
     @Bean
-    @JobScope
     public Step step1() {
         return stepBuilderFactory.get("step1_v1")
                 .<String, String>chunk(5)

@@ -1,4 +1,4 @@
-package com.study.springbatch.config.part6_chunk_itemReader.v2;
+package com.study.springbatch.config.part6_chunk_itemReader.v3;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,22 +11,26 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
+import org.springframework.batch.item.file.transform.Range;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 
 import java.util.List;
 
 /**
  * ItemReader 의 FlatFileItemReader 학습
- * -v1에서는 직접 FieldSetMapper와 LineMapper을 구현했지만,
- * 여기서는 스프링 배치에서 제공하는 구현체를 사용함 (훨씬 더 간편하니 이 방식을 사용하자)
+ * - FlatFieldItemReader 는 파일을 읽는 두가지 방식 존재
+ *  1. DelimitedLineTokenizer - 구분자방식
+ *  2. FixedLengthTokenizer   -고정길이 방식  !!!
+ *
+ *  - 여기서는 스프링 배치가 제공하는 2번 활용
  */
 @RequiredArgsConstructor
 @Configuration
 @Slf4j
-public class FlatFilesConfigV2 {
+public class FlatFiles_FixedLengthTokenizerConfigV3 {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
@@ -34,17 +38,16 @@ public class FlatFilesConfigV2 {
 
     @Bean
     public Job batchJob() {
-        log.info(">> batchJob_v1");
-        return jobBuilderFactory.get("batchJob_v1")
+        log.info(">> batchJob_v3");
+        return jobBuilderFactory.get("batchJob_v3")
                 .start(step1())
                 .next(step2())
                 .build();
     }
 
     @Bean
-    @JobScope
     public Step step1() {
-        return stepBuilderFactory.get("step1_v1")
+        return stepBuilderFactory.get("step1_v3")
                 .<String, String>chunk(5)
                 .reader(itemReader())
                 .writer(new ItemWriter() {
@@ -56,24 +59,30 @@ public class FlatFilesConfigV2 {
                 .build();
     }
 
+    /**
+     * FixedLengthTokenizer 활용 - ex) fixedLength(), addColumns()
+     */
     @Bean
     public ItemReader itemReader() {
         return new FlatFileItemReaderBuilder<Customer>()
                 .name("flatFile")
-                .resource(new ClassPathResource("/customer.csv"))
+                .resource(new FileSystemResource("/Users/jiwon/dev-study/inflearn-spring-batch/springbatch/src/main/resources/customerPart6_v3.csv"))
                 .fieldSetMapper(new BeanWrapperFieldSetMapper<>()) // 직접구현하기보다, 제공되는걸 쓰는게 훨씬 간편!
                 .targetType(Customer.class) // 대신 타겟클래스 지정해야함
                 .linesToSkip(1) // customer.csv파일의 첫번째 라인은 skip
-                .delimited().delimiter(",")
+                .fixedLength()
+                .addColumns(new Range(1,5)) // user1, user2 등의 user
+                .addColumns(new Range(6,7)) // 31, 32 등의 age
+                .addColumns(new Range(8,11))  // 2001, 2002 등의 year
                 .names("name", "age", "year")
                 .build();
     }
 
     @Bean
     public Step step2() {
-        return stepBuilderFactory.get("step2_v1")
+        return stepBuilderFactory.get("step2_v3")
                 .tasklet((contribution, chunkContext) -> {
-                    log.info(">> step2_v1");
+                    log.info(">> step2_v3");
                     return RepeatStatus.FINISHED;
                 })
                 .build();
