@@ -6,7 +6,6 @@ import com.study.springbatch.config.part3_step.v3.TaskletStepConfigV3;
 import com.study.springbatch.config.part3_step.v4.JobStepConfigV4;
 import com.study.springbatch.config.part4_flow.v1.FlowJobConfigV1;
 import com.study.springbatch.config.part4_flow.v2.FlowJobStartNextConfigV2;
-import com.study.springbatch.config.part4_flow.v2.JobRunnerV2;
 import com.study.springbatch.config.part4_flow.v3.BatchStatusExitStatusConfigV3;
 import com.study.springbatch.config.part4_flow.v3.JobRunnerV3;
 import com.study.springbatch.config.part4_flow.v4.CustomDecider;
@@ -20,6 +19,9 @@ import com.study.springbatch.config.part4_flow.v6.JobRunnerV6;
 import com.study.springbatch.config.part4_flow.v6.JobScopeConfigV6;
 import com.study.springbatch.config.part5_chunkBasic.v1.ChunkConfigV1;
 import com.study.springbatch.config.part5_chunkBasic.v1.JobRunnerV1;
+import com.study.springbatch.config.part6_chunk_itemReader.v2.Customer;
+import com.study.springbatch.config.part6_chunk_itemReader.v2.FlatFilesConfigV2;
+import com.study.springbatch.config.part6_chunk_itemReader.v2.JobRunnerV2;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -48,7 +50,8 @@ import org.springframework.context.annotation.Import;
 //@Import({FlowStepConfigV5.class, JobRunnerV5.class})
 //@Import({JobScopeConfigV6.class, JobRunnerV6.class, CustomJobListener.class, CustomStepListener.class})
 //@Import({ChunkConfigV1.class, JobRunnerV1.class}) // 여기부터 part5
-@ComponentScan("com.study.springbatch.config.part6_chunk_itemReader")
+//@ComponentScan("com.study.springbatch.config.part6_chunk_itemReader") // 여기부터 part6
+@Import({FlatFilesConfigV2.class, Customer.class, JobRunnerV2.class})
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
