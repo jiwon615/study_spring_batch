@@ -74,6 +74,8 @@ public class FlatFiles_FixedLengthTokenizerConfigV3 {
                 .addColumns(new Range(1,5)) // user1, user2 등의 user
                 .addColumns(new Range(6,7)) // 31, 32 등의 age
                 .addColumns(new Range(8,11))  // 2001, 2002 등의 year
+//                .addColumns(new Range(1))  // ex) 이처럼 min 값만 지정하면 1번째부터 끝까지 읽는다는 뜻
+
                 .names("name", "age", "year")
                 .build();
     }
