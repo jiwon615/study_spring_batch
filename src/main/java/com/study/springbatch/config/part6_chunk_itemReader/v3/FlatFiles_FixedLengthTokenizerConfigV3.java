@@ -71,6 +71,7 @@ public class FlatFiles_FixedLengthTokenizerConfigV3 {
                 .targetType(Customer.class) // 대신 타겟클래스 지정해야함
                 .linesToSkip(1) // customer.csv파일의 첫번째 라인은 skip
                 .fixedLength()
+                .strict(false)
                 .addColumns(new Range(1,5)) // user1, user2 등의 user
                 .addColumns(new Range(6,7)) // 31, 32 등의 age
                 .addColumns(new Range(8,11))  // 2001, 2002 등의 year
