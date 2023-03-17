@@ -23,6 +23,7 @@ import com.study.springbatch.config.part5_chunkBasic.v1.JobRunnerV1;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 //@Import(HelloJobConfiguration.class)
@@ -46,7 +47,8 @@ import org.springframework.context.annotation.Import;
 //@Import({JobExeuctionDeciderStatusConfigV4.class, JobRunnerV4.class, CustomDecider.class})
 //@Import({FlowStepConfigV5.class, JobRunnerV5.class})
 //@Import({JobScopeConfigV6.class, JobRunnerV6.class, CustomJobListener.class, CustomStepListener.class})
-@Import({ChunkConfigV1.class, JobRunnerV1.class}) // 여기부터 part5
+//@Import({ChunkConfigV1.class, JobRunnerV1.class}) // 여기부터 part5
+@ComponentScan("com.study.springbatch.config.part6_chunk_itemReader")
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
