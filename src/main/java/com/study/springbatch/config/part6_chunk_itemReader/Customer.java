@@ -1,4 +1,4 @@
-package com.study.springbatch.config.part6_chunk_itemReader.v1;
+package com.study.springbatch.config.part6_chunk_itemReader;
 
 import lombok.Data;
 

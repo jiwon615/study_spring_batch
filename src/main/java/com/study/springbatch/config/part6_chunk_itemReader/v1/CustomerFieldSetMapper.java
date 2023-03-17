@@ -1,5 +1,6 @@
 package com.study.springbatch.config.part6_chunk_itemReader.v1;
 
+import com.study.springbatch.config.part6_chunk_itemReader.Customer;
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.FieldSet;
 import org.springframework.validation.BindException;

@@ -1,11 +1,11 @@
 package com.study.springbatch.config.part6_chunk_itemReader.v2;
 
+import com.study.springbatch.config.part6_chunk_itemReader.Customer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
-import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
@@ -21,10 +21,10 @@ import java.util.List;
 /**
  * ItemReader 의 FlatFileItemReader 학습
  * - FlatFieldItemReader 는 파일을 읽는 두가지 방식 존재
- *  1. DelimitedLineTokenizer - 구분자방식 !!!
- *  2. FixedLengthTokenizer   -고정길이 방식
- *
- *  - 여기서는 스프링 배치가 제공하는 1번 활용
+ * 1. DelimitedLineTokenizer - 구분자방식 !!!
+ * 2. FixedLengthTokenizer   -고정길이 방식
+ * <p>
+ * - 여기서는 스프링 배치가 제공하는 1번 활용
  */
 @RequiredArgsConstructor
 @Configuration

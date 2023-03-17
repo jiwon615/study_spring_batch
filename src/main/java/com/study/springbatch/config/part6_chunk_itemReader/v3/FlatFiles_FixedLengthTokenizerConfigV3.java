@@ -1,11 +1,11 @@
 package com.study.springbatch.config.part6_chunk_itemReader.v3;
 
+import com.study.springbatch.config.part6_chunk_itemReader.Customer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
-import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
@@ -22,10 +22,10 @@ import java.util.List;
 /**
  * ItemReader 의 FlatFileItemReader 학습
  * - FlatFieldItemReader 는 파일을 읽는 두가지 방식 존재
- *  1. DelimitedLineTokenizer - 구분자방식
- *  2. FixedLengthTokenizer   -고정길이 방식  !!!
- *
- *  - 여기서는 스프링 배치가 제공하는 2번 활용
+ * 1. DelimitedLineTokenizer - 구분자방식
+ * 2. FixedLengthTokenizer   -고정길이 방식  !!!
+ * <p>
+ * - 여기서는 스프링 배치가 제공하는 2번 활용
  */
 @RequiredArgsConstructor
 @Configuration
@@ -72,9 +72,9 @@ public class FlatFiles_FixedLengthTokenizerConfigV3 {
                 .linesToSkip(1) // customer.csv파일의 첫번째 라인은 skip
                 .fixedLength()
                 .strict(false)
-                .addColumns(new Range(1,5)) // user1, user2 등의 user
-                .addColumns(new Range(6,7)) // 31, 32 등의 age
-                .addColumns(new Range(8,11))  // 2001, 2002 등의 year
+                .addColumns(new Range(1, 5)) // user1, user2 등의 user
+                .addColumns(new Range(6, 7)) // 31, 32 등의 age
+                .addColumns(new Range(8, 11))  // 2001, 2002 등의 year
 //                .addColumns(new Range(1))  // ex) 이처럼 min 값만 지정하면 1번째부터 끝까지 읽는다는 뜻
 
                 .names("name", "age", "year")
