@@ -61,6 +61,7 @@ public class DB_JdbcPagingItemReaderConfigV7 {
                 .build();
     }
 
+    // select, where, sortKey 작성은 필수!!
     @Bean
     public PagingQueryProvider createQueryProvider() throws Exception {
         SqlPagingQueryProviderFactoryBean queryProvider = new SqlPagingQueryProviderFactoryBean();
