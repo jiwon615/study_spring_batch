@@ -1,10 +1,12 @@
 package com.study.springbatch;
 
 import com.study.springbatch.config.part6_chunk_itemReader.Customer;
+import com.study.springbatch.config.part6_chunk_itemReader.JobRunner;
 import com.study.springbatch.config.part6_chunk_itemReader.v3.FlatFiles_FixedLengthTokenizerConfigV3;
 import com.study.springbatch.config.part6_chunk_itemReader.v3.JobRunnerV3;
 import com.study.springbatch.config.part6_chunk_itemReader.v4.JobRunnerV4;
 import com.study.springbatch.config.part6_chunk_itemReader.v4.JsonItemReaderConfigV4;
+import com.study.springbatch.config.part6_chunk_itemReader.v5.DB_JdbcCursorItemReaderConfigV5;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -35,7 +37,8 @@ import org.springframework.context.annotation.Import;
 //@ComponentScan("com.study.springbatch.config.part6_chunk_itemReader") // 여기부터 part6
 //@Import({FlatFilesConfigV2.class, Customer.class, JobRunnerV2.class})
 //@Import({FlatFiles_FixedLengthTokenizerConfigV3.class, JobRunnerV3.class, Customer.class})
-@Import({JsonItemReaderConfigV4.class, JobRunnerV4.class})
+//@Import({JsonItemReaderConfigV4.class, JobRunnerV4.class})
+@Import({DB_JdbcCursorItemReaderConfigV5.class, JobRunner.class, Customer.class})
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
