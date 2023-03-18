@@ -10,4 +10,11 @@ spring:
     job:
       enabled: false # 직접 JobRunner사용하려면 enabled:false 두고, program aruments로 외부 주입하려면 주석처리해둠(ex. --job.name={jobName})
       names: ${job.name:NONE}
-
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
