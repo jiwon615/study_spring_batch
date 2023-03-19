@@ -12,9 +12,11 @@ import com.study.springbatch.config.part7_chunk_itemWriter.v2.CustomerP7V2;
 import com.study.springbatch.config.part7_chunk_itemWriter.v2.JsonFileItemWriterConfigV2;
 import com.study.springbatch.config.part7_chunk_itemWriter.v3.Customer;
 import com.study.springbatch.config.part7_chunk_itemWriter.v3.JdbcBatchItemWriterConfigV3;
+import com.study.springbatch.config.part8_itemprocessor.JobRunnerPart8;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 //@Import(HelloJobConfiguration.class)
@@ -50,7 +52,9 @@ import org.springframework.context.annotation.Import;
 //@Import({ItemReaderAdapterConfigV9.class, JobRunner.class, CustomerService.class})
 //@Import({FlatFiles_DelimitedLineAggregatorConfigV1.class, JobRunnerPart7.class, Customer.class})
 //@Import({JsonFileItemWriterConfigV2.class, CustomerP7V2.class, JobRunnerPart7.class})
-@Import({JdbcBatchItemWriterConfigV3.class, Customer.class, JobRunnerPart7.class})
+//@Import({JdbcBatchItemWriterConfigV3.class, Customer.class, JobRunnerPart7.class})
+@ComponentScan("com.study.springbatch.config.part8_itemprocessor.v1")
+@Import(JobRunnerPart8.class)
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
