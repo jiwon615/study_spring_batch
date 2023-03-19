@@ -58,7 +58,8 @@ import org.springframework.context.annotation.Import;
 //@ComponentScan("com.study.springbatch.config.part8_itemprocessor.v2")
 //@Import(JobRunnerPart8.class)
 
-@ComponentScan("com.study.springbatch.config.part9_repeat_skip_retry.v1")
+//@ComponentScan("com.study.springbatch.config.part9_repeat_skip_retry.v1")
+@ComponentScan("com.study.springbatch.config.part9_repeat_skip_retry.v2")
 @Import(JobRunnerPart9.class)
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
