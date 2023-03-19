@@ -53,7 +53,8 @@ import org.springframework.context.annotation.Import;
 //@Import({FlatFiles_DelimitedLineAggregatorConfigV1.class, JobRunnerPart7.class, Customer.class})
 //@Import({JsonFileItemWriterConfigV2.class, CustomerP7V2.class, JobRunnerPart7.class})
 //@Import({JdbcBatchItemWriterConfigV3.class, Customer.class, JobRunnerPart7.class})
-@ComponentScan("com.study.springbatch.config.part8_itemprocessor.v1")
+//@ComponentScan("com.study.springbatch.config.part8_itemprocessor.v1")
+@ComponentScan("com.study.springbatch.config.part8_itemprocessor.v2")
 @Import(JobRunnerPart8.class)
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
