@@ -13,6 +13,7 @@ import com.study.springbatch.config.part7_chunk_itemWriter.v2.JsonFileItemWriter
 import com.study.springbatch.config.part7_chunk_itemWriter.v3.Customer;
 import com.study.springbatch.config.part7_chunk_itemWriter.v3.JdbcBatchItemWriterConfigV3;
 import com.study.springbatch.config.part8_itemprocessor.JobRunnerPart8;
+import com.study.springbatch.config.part9_repeat_skip_retry.JobRunnerPart9;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -54,8 +55,11 @@ import org.springframework.context.annotation.Import;
 //@Import({JsonFileItemWriterConfigV2.class, CustomerP7V2.class, JobRunnerPart7.class})
 //@Import({JdbcBatchItemWriterConfigV3.class, Customer.class, JobRunnerPart7.class})
 //@ComponentScan("com.study.springbatch.config.part8_itemprocessor.v1")
-@ComponentScan("com.study.springbatch.config.part8_itemprocessor.v2")
-@Import(JobRunnerPart8.class)
+//@ComponentScan("com.study.springbatch.config.part8_itemprocessor.v2")
+//@Import(JobRunnerPart8.class)
+
+@ComponentScan("com.study.springbatch.config.part9_repeat_skip_retry.v1")
+@Import(JobRunnerPart9.class)
 @EnableBatchProcessing
 @SpringBootApplication(scanBasePackages = "com.study.springbatch.basic")
 public class SpringbatchApplication {
