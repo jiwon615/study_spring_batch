@@ -1,5 +1,6 @@
 package com.study.springbatch.config.part9_repeat_skip_retry.v4;
 
+import io.micrometer.core.instrument.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -26,6 +28,7 @@ public class RetryConfigV4 {
     @Bean
     public Job batchJob() {
         log.info(">> batchJob_v4");
+        
         return jobBuilderFactory.get("batchJob_v4")
                 .start(step1())
                 .build();
